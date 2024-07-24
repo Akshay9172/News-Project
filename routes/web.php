@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\NewsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +16,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::get('/news', function () {
+//     return view('News.addNews');
+// });
 
-Auth::routes();
+// Route::get('/create-news', [NewsController::class, 'index']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Category Table
+Route::get('/add-category',[CategoryController::class,'addCategory']);
+Route::post('/add-category',[CategoryController::class,'storeCategory']);
+Route::get('/show-category',[CategoryController::class,'showCategory']);
+Route::get('/delete-category/{id}',[CategoryController::class,'deleteCategory']);
