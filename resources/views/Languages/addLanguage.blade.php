@@ -7,7 +7,7 @@
     </div>
 @endsection
 @section('content')
-    <div class="row card-body">
+    <div class="row card card-body">
         <form action="{{ route('languages.store') }}" method="POST">
             @csrf
             <div class="mb-3">
