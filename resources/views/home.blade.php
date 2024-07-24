@@ -1,4 +1,4 @@
-@extends('Layouts.adminLayout')
+@extends('layouts.adminLayout')
 @section('heading')
     <div>
         <h3 class="card-title"><b>Dashboard</b></h3>

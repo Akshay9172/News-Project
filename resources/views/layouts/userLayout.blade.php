@@ -1,4 +1,4 @@
-    git <!doctype html>
+ <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -26,7 +26,6 @@
     <meta name="theme-color" content="#000000" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Web site created using create-react-app" />
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -92,12 +91,10 @@
                 </form>
             </div>
         </nav>
-
         <div class="container">
 
             @yield('content')
         </div>
-
         <footer class="bg-dark text-light mt-5">
             <div class="container py-4">
                 <div class="row">
