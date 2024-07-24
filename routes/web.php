@@ -5,6 +5,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsControllernew;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,10 @@ Route::delete('/languages/{id}', [LanguageController::class, 'destroy'])->name('
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Category Table
+Route::get('/add-category', [CategoryController::class, 'addCategory']);
+Route::post('/add-category', [CategoryController::class, 'storeCategory']);
+Route::get('/show-category', [CategoryController::class, 'showCategory']);
+Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategory']);
