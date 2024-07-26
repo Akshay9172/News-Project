@@ -1,4 +1,4 @@
-@extends('layouts.userLayout')
+@extends('Layouts.userLayout')
 
 @section('content')
 
@@ -10,7 +10,7 @@
                     <a href="." class="navbar-brand navbar-brand-autodark">
                         {{-- <img src="./static/logo.svg" height="36"
                             alt=""> --}}
-                        </a>
+                    </a>
                 </div>
                 <div class="card card-md">
                     <div class="card-body">
@@ -25,7 +25,8 @@
 
                                 <input id="email" type="email"
                                     class="form-control @error('email') is-invalid @enderror" name="email"
-                                    value="{{ old('email') }}" required autocomplete="email" placeholder="your@email.com" autofocus>
+                                    value="{{ old('email') }}" required autocomplete="email" placeholder="your@email.com"
+                                    autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -38,13 +39,13 @@
 
                             <div class="mb-2">
                                 <label for="password" class="form-label ">{{ __('Password') }}</label>
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Your password"
-                                    name="password" required autocomplete="current-password">
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                    placeholder="Your password" name="password" required autocomplete="current-password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 {{-- </div> --}}
                             </div>
 
@@ -55,17 +56,18 @@
                             <div class="mb-2">
                                 <label class="form-check" for="remember">
                                     {{ __('Remember Me') }}
-                                    <input type="checkbox" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} />
+                                    <input type="checkbox" class="form-check-input" name="remember" id="remember"
+                                        {{ old('remember') ? 'checked' : '' }} />
                                     <span class="form-check-label">On This Device</span>
                                 </label>
                             </div>
                             <div class="form-footer mb-2">
                                 <button type="submit" class="btn btn-primary w-100"> {{ __('Login') }}</button>
                                 @if (Route::has('password.request'))
-                                <a class="btn btn-link mb-4" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            @endif
+                                    <a class="btn btn-link mb-4" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
                             </div>
                         </form>
                     </div>

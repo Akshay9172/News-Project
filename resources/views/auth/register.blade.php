@@ -1,8 +1,7 @@
-@extends('layouts.userLayout')
+@extends('Layouts.userLayout')
 
 
 @section('content')
-
 
     <body class=" d-flex flex-column">
         <script src="./dist/js/demo-theme.min.js?1684106062"></script>
@@ -32,7 +31,9 @@
                         <div class="mb-3">
                             <label class="form-label  fw-bold">{{ __('Email Address') }}</label>
 
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Enter Email">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                name="email" value="{{ old('email') }}" required autocomplete="email"
+                                placeholder="Enter Email">
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -44,20 +45,23 @@
                         <div class="mb-3">
                             <label class="form-label  fw-bold">{{ __('Password') }}</label>
 
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Enter Password">
+                            <input id="password" type="password"
+                                class="form-control @error('password') is-invalid @enderror" name="password" required
+                                autocomplete="new-password" placeholder="Enter Password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
 
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label  fw-bold">{{ __('Confirm Password') }}</label>
 
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                                required autocomplete="new-password" placeholder="Confirm Password">
                         </div>
 
                         <div class="mb-3">
