@@ -10,12 +10,12 @@ class LanguageController extends Controller
     public function index()
     {
         $languages = Language::all();
-        return view('Languages.showLanguage', compact('languages'));
+        return view('Admin.SuperAdmin.Languages.showLanguage', compact('languages'));
     }
 
     public function create()
     {
-        return view('Languages.addLanguage');
+        return view('Admin.SuperAdmin.Languages.addLanguage');
     }
 
     public function store(Request $request)

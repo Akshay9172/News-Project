@@ -1,9 +1,11 @@
 @extends('Layouts.adminLayout')
+
 @section('heading')
     <div>
         <h3 class="card-title"><b> News List</b></h3>
     </div>
 @endsection
+
 @section('content')
     <div class="col-12">
         <div class="card">
@@ -34,15 +36,13 @@
                                 <option value="">All Types</option>
                                 <option value="Breaking News"
                                     {{ request('news_type') == 'Breaking News' ? 'selected' : '' }}>
-                                    Breaking
-                                    News</option>
+                                    Breaking News
+                                </option>
                                 <option value="Normal News" {{ request('news_type') == 'Normal News' ? 'selected' : '' }}>
-                                    Normal
-                                    News
+                                    Normal News
                                 </option>
                                 <option value="Video News" {{ request('news_type') == 'Video News' ? 'selected' : '' }}>
-                                    Video
-                                    News
+                                    Video News
                                 </option>
                             </select>
                         </div>
@@ -66,12 +66,14 @@
                         @foreach ($news as $key => $item)
                             <tr>
                                 <td><span class="text-muted">{{ $key + 1 }}</span></td>
-                                <td><span class="text-reset"><b>{{ Str::words($item->title, 9, '...') }}</b></span></td>
-                                <td>{!! Str::limit($item->description, 50) !!}</td>
+                                <td><span class="text-reset"><b>{{ Str::words($item->title, 6, '...') }}</b></span></td>
+                                <td>{!! Str::limit($item->description, 30) !!}</td>
                                 <td>{{ $item->news_type }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->created_at }}</td>
                                 <td>
+                                    <a class="btn btn-success show_details" data-toggle="modal" data-target="#viewNewsModal"
+                                        data-title="{{ $item->title }}" data-id="{{ $item->id }}">View</a>
                                     <a href="{{ route('news.edit', $item->id) }}" class="btn btn-info">Edit</a>
                                     <form action="{{ route('news.delete', $item->id) }}" method="POST"
                                         style="display:inline;">
@@ -88,4 +90,35 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="viewNewsModal" tabindex="-1" role="dialog" aria-labelledby="viewNewsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewNewsModalLabel">News Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Title: </strong><span class="title"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="rejectNews">Reject</button>
+                    <button type="button" class="btn btn-success" id="publishNews">Publish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).on('click', 'show_details', function(e) {
+            let title = $(this).data('title');
+
+
+            console.log(title);
+            $('title').text(title);
+        });
+    </script>
 @endsection

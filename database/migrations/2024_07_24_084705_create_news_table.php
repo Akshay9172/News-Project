@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->string('img')->nullable();
+            $table->longText('title');
+            $table->longText('slug')->nullable();
+            $table->longText('description');
+            $table->longText('img')->nullable();
             $table->string('news_type');
             $table->foreignId('reporter_id')->constrained('users'); // assuming you have a users table for reporters
             $table->foreignId('category_id')->constrained('categories');
-            $table->string('slug')->nullable();
-            $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
+            $table->enum('status', ['draft', 'published', 'rejected'])->default('draft');
             $table->timestamps();
         });
     }

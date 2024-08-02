@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
+
+
     protected $fillable = [
         'title',
         'description',
@@ -16,6 +18,7 @@ class News extends Model
         'language_id',
         'reporter_id',
     ];
+
 
     public function category()
     {

@@ -20,6 +20,15 @@
     @endsection
     @section('content')
         <div class="container">
+            @if (session('success'))
+                <div>
+                    {{ session('success') }}
+                    <br>
+                    <img src="{{ session('url') }}" alt="Uploaded Image">
+                    <br>
+                    <a href="{{ session('url') }}" target="_blank">{{ session('url') }}</a>
+                </div>
+            @endif
             <div class="row row-cards">
                 <form class="card" action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -59,8 +68,11 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label class="form-label" id="imageLabel">Image</label>
-                                    <input type="url" class="form-control" id="img" name="img"
-                                        placeholder="Image URL" required>
+                                    <input type="file" class="form-control" id="img" name="img"
+                                        accept="image/*" required>
+
+
+
                                 </div>
                             </div>
                             <div class="col-md-4">

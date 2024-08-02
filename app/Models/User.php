@@ -20,8 +20,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
+        'mobile',
         'password',
     ];
 
@@ -43,4 +45,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function adminDefaultPermissions()
+    {
+        return [
+            'home',
+            'news', 'show-blog',
+            'create-news', 'store-news', 'news-list',
+            'languages', 'create-languages',
+            'add-category', 'show-category', 'delete-category',
+            'contact-us', 'contact-uss', 'show-contactus', 'delete-contactus',
+        ];
+    }
+
+    public static function repoterDefaultPermissions()
+    {
+        return [
+            'home', 'create-news', 'news-list',
+        ];
+    }
 }

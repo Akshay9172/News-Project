@@ -12,10 +12,19 @@
                             alt=""> --}}
                     </a>
                 </div>
-                <div class="card card-md">
+                <div class="login-card">
                     <div class="card-body">
                         <h2 class="h4 text-center mb-4">Login to your account</h2>
 
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
                         <form action="{{ route('login') }}" method="POST" autocomplete="off" novalidate>
                             @csrf
@@ -48,10 +57,6 @@
                                 @enderror
                                 {{-- </div> --}}
                             </div>
-
-                            <span class="form-label-description">
-                                <a href="./forgot-password.html">I forgot password</a>
-                            </span>
 
                             <div class="mb-2">
                                 <label class="form-check" for="remember">

@@ -67,7 +67,7 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label class="form-label" id="imageLabel">Image</label>
-                                    <input type="url" class="form-control" id="img" name="img"
+                                    <input type="file" class="form-control" id="img" name="img"
                                         value="{{ $news->img }}" placeholder="Image URL" required>
                                 </div>
                             </div>

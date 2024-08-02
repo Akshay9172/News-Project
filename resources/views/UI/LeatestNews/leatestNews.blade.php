@@ -6,116 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bootstrap Carousel Example</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     <!-- Custom CSS -->
-    <style>
-        .latest-news-carousel-item {
-            display: flex;
-            align-items: center;
-        }
 
-        .latest-news-card-img-top {
-            width: 100%;
-            height: 180px;
-            /* Fixed height for images */
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .latest-news-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-decoration: none;
-            color: inherit;
-            height: 100%;
-        }
-
-        .latest-news-card-body {
-            flex: 1;
-        }
-
-        .latest-news-card-title {
-            margin-top: 1rem;
-            font-size: 1.1rem;
-            font-weight: bold;
-        }
-
-        .latest-news-card-text {
-            font-size: 0.9rem;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 767px) {
-            .latest-news-carousel-inner .latest-news-carousel-item {
-                flex-direction: column;
-            }
-
-            .latest-news-carousel-inner .col-md-4 {
-                max-width: 100%;
-                flex: 0 0 100%;
-            }
-        }
-
-        .latest-news-carousel-indicators-dot button {
-            background-color: #000;
-        }
-
-        .latest-news-card-height {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .latest-news-card-img-container {
-            overflow: hidden;
-        }
-
-        .latest-news-card-img-container {
-            overflow: hidden;
-            position: relative;
-            /* Add this to position the shine effect relative to the container */
-        }
-
-        .latest-news-card-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-            /* Ensures that the image does not add extra space */
-        }
-
-        .latest-news-card-img-container::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 20%;
-            height: 200%;
-            opacity: 0;
-            transform: rotate(30deg);
-            background: rgba(255, 255, 255, 0.13);
-            background: linear-gradient(to right,
-                    rgba(255, 255, 255, 0.13) 0%,
-                    rgba(255, 255, 255, 0.13) 77%,
-                    rgba(255, 255, 255, 0.5) 92%,
-                    rgba(255, 255, 255, 0.0) 100%);
-            transition: left 1.7s ease, opacity 0.15s ease;
-        }
-
-        .latest-news-card-img-container:hover::after {
-            opacity: 1;
-            left: 130%;
-        }
-
-        .latest-news-card-img-container:active::after {
-            opacity: 0;
-        }
-    </style>
 </head>
 
 <body>
@@ -190,10 +83,6 @@
         </div>
     </section>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
 
 </html>
