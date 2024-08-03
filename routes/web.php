@@ -24,39 +24,29 @@ use App\Http\Controllers\RepoterController;
 |
 */
 
+Route::get('/s', function () {
+    return view('imageupload');
+});
+
+
+
+
 
 // Route to display the news carousel
-Route::get('/', [NewsController::class, 'ShowCarousel']);
+Route::get('/', [NewsController::class, 'ShowHomePageNews']);
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/news/{id}', [NewsController::class, 'singleNewsShow']);
 Route::get('/show-blog', function () {
     return view('UI.Blog.DisplayBlog');
 });
+
+Route::post('upload-image', [NewsController::class, 'addImage'])->name("upload.image");
 Route::get('/all-type-news', [NewsController::class, 'allNewsShow']);
+
 // Reporter Permission
 Route::get('/show-repoter', [RepoterController::class, 'show']);
 Route::patch('/user/{id}/updateStatus', [RepoterController::class, 'updateStatus']);
-
-
-Route::get('/news', [NewsController::class, 'Show'])->name('news.show');
-
-
-// In your web.php or routes file
-Route::get('/news/list', [NewsController::class, 'index'])->name('news.list');
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Advertisment
 Route::resource('advertisements', AdvertisementController::class);
@@ -73,9 +63,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/store-news', [NewsController::class, 'Store'])->name('news.store');
     Route::get('/news-list', [NewsController::class, 'Show'])->name('news.list');
 
-    Route::get('/news/popup/{id}', [NewsController::class, 'PopupDetails'])->name('news.popup');
+    // Route::get('/news/popup/{id}', [NewsController::class, 'PopupDetails'])->name('news.popup');
 
-
+    // Route for showing the form to category type News
+    Route::get('/news/category/{id}', [NewsController::class, 'showNewsByCategory']);
 
 
     // Route for showing the form to edit a specific news item
@@ -104,12 +95,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/contact-uss', [ContactUsController::class, 'storeContactUs']);
     Route::get('/show-contactus', [ContactUsController::class, 'showContactUs']);
     Route::get('/delete-contactus/{id}', [ContactUsController::class, 'deleteContactUs']);
+
     // Blogs Table
     Route::get('/add-blog', [BlogController::class, 'addBlog']);
     Route::post('/add-blog', [BlogController::class, 'storeBlog']);
     Route::get('/delete-blog/{id}', [BlogController::class, 'deleteBlog']);
-
-
 
     // web.php
     Route::get('/blog/{slug}/edit', [BlogController::class, 'edit'])->name('blog.edit');

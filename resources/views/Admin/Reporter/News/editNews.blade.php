@@ -19,7 +19,7 @@
         </div>
     @endsection
     @section('content')
-        <div class="">
+        <div class="container">
             <div class="row row-cards">
                 <form class="card" action="{{ route('news.update', $news->id) }}" method="POST"
                     enctype="multipart/form-data">
@@ -67,7 +67,7 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label class="form-label" id="imageLabel">Image</label>
-                                    <input type="url" class="form-control" id="img" name="img"
+                                    <input type="file" class="form-control" id="img" name="img"
                                         value="{{ $news->img }}" placeholder="Image URL" required>
                                 </div>
                             </div>
@@ -85,6 +85,7 @@
                                     </select>
                                 </div>
                             </div>
+
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Description</label>
@@ -100,6 +101,7 @@
                 <a href="{{ route('news.list') }}" class="btn btn-secondary mt-3">View News</a>
             </div>
         </div>
+
         <!-- Include jQuery -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <!-- Include Popper.js -->
@@ -126,6 +128,7 @@
                 // Update the image label based on the selected news type
                 updateImageLabel();
             });
+
             function updateImageLabel() {
                 var newsType = document.getElementById('news_type').value;
                 var imageLabel = document.getElementById('imageLabel');
@@ -142,4 +145,5 @@
         </script>
     @endsection
 </body>
+
 </html>

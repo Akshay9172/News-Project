@@ -66,13 +66,14 @@
                         @foreach ($news as $key => $item)
                             <tr>
                                 <td><span class="text-muted">{{ $key + 1 }}</span></td>
-                                <td><span class="text-reset"><b>{{ Str::words($item->title, 9, '...') }}</b></span></td>
-                                <td>{!! Str::limit($item->description, 50) !!}</td>
+                                <td><span class="text-reset"><b>{{ Str::words($item->title, 6, '...') }}</b></span></td>
+                                <td>{!! Str::limit($item->description, 30) !!}</td>
                                 <td>{{ $item->news_type }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->created_at }}</td>
                                 <td>
-                                    <a class="btn btn-success">View</a>
+                                    <a class="btn btn-success show_details" data-toggle="modal" data-target="#viewNewsModal"
+                                        data-title="{{ $item->title }}" data-id="{{ $item->id }}">View</a>
                                     <a href="{{ route('news.edit', $item->id) }}" class="btn btn-info">Edit</a>
                                     <form action="{{ route('news.delete', $item->id) }}" method="POST"
                                         style="display:inline;">
@@ -102,7 +103,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!-- News details will be injected here -->
+                    <p><strong>Title: </strong><span class="title"></span></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" id="rejectNews">Reject</button>
@@ -111,4 +112,13 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).on('click', 'show_details', function(e) {
+            let title = $(this).data('title');
+
+
+            console.log(title);
+            $('title').text(title);
+        });
+    </script>
 @endsection

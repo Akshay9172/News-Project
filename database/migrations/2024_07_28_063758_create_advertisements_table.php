@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('advertisements', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->string('image_path');
+            $table->string('title')->nullable();
+            $table->string('img');
+            $table->string('advertisement_type');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@
         </div>
     @endsection
     @section('content')
-        <div class="">
+        <div class="container">
             @if (session('success'))
                 <div>
                     {{ session('success') }}
@@ -69,7 +69,8 @@
                                 <div class="mb-3">
                                     <label class="form-label" id="imageLabel">Image</label>
                                     <input type="file" class="form-control" id="img" name="img"
-                                        placeholder="Image URL" required>
+                                        accept="image/*" required>
+
 
 
                                 </div>

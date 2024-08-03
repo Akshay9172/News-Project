@@ -9,5 +9,5 @@ class Advertisement extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'image_path'];
+    protected $fillable = ['title', 'img', 'advertisement_type', 'start_date', 'end_date'];
 }

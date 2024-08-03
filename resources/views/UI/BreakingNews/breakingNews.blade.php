@@ -25,6 +25,7 @@
         <div class="carousel-inner">
             @foreach ($breakingNews as $key => $news)
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+
                     <figure class="effect-sadie">
                         <img src="{{ $news->img }}" class="d-block w-100" alt="{{ $news->title }}" />
                         <figcaption class="mt-7">
@@ -34,6 +35,7 @@
                             </div>
                         </figcaption>
                     </figure>
+
                 </div>
             @endforeach
         </div>
