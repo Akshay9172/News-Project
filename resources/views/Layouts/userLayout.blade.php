@@ -185,7 +185,7 @@
                              <a class="nav-link text-light" href="#">Home</a>
                          </li>
                          <li class="nav-item">
-                             <a class="nav-link text-light" href="#">Blog</a>
+                             <a class="nav-link text-light" href="/blog">Blog</a>
                          </li>
                          <li class="nav-item">
                              <a class="nav-link text-light" href="#">Forums</a>
