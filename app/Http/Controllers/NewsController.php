@@ -46,7 +46,7 @@ class NewsController extends Controller
         $recentNews = $leatestNews->sortByDesc('created_at')->take(6);
         $newsByCategory = News::where('category_id', $id)->get();
         $categories = Category::all();
-        return view('UI.Show News By Category.showNewsByCategory', compact('newsByCategory', 'category', 'ads', 'breakingNews', 'recentNews', 'leatestNews', 'categories'));
+        return view('UI.Home.home', compact('newsByCategory', 'category', 'ads', 'breakingNews', 'recentNews', 'leatestNews', 'categories'));
     }
 
     public function singleNewsShow($id)
