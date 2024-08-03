@@ -95,7 +95,7 @@
                             <a class="nav-link text-dark" href="#"><b>LIFESTYLE</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#"><b>TECHNOLOGY</b></a>
+                            <a class="nav-link text-dark" href="#"><b>blog</b></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="#"><b>SPORTS</b></a>
